@@ -574,7 +574,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
         jInternalFrame4.setTitle("Grupo de Solicitudes");
         jInternalFrame4.setVisible(true);
 
-        lblShort1.setText("Shortname Aplicacion");
+        lblShort1.setText("Shortname Concurrente");
 
         txtShortName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

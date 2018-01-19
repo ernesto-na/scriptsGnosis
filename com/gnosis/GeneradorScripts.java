@@ -117,6 +117,21 @@ public class GeneradorScripts extends javax.swing.JFrame {
         txtUP = new javax.swing.JTextField();
         jInternalFrame5 = new javax.swing.JInternalFrame();
         jLabel3 = new javax.swing.JLabel();
+        jInternalFrame6 = new javax.swing.JInternalFrame();
+        jLabel10 = new javax.swing.JLabel();
+        txtUser = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtPssw = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtNameL = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtAppSh = new javax.swing.JTextField();
+        txtUpload = new javax.swing.JTextField();
+        txtDown = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        btnUpload = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -660,9 +675,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                                 .addComponent(txtUP, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(9, 9, 9)))
                         .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jInternalFrame4Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnDnwlTem1))
+                            .addComponent(btnDnwlTem1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame4Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(btnUplTem1))))
@@ -761,6 +774,107 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Acerca de..", jInternalFrame5);
 
+        jInternalFrame6.setVisible(true);
+
+        jLabel10.setText("Usuario: ");
+
+        txtUser.setText("apps");
+
+        jLabel11.setText("Contraseña: ");
+
+        jLabel12.setText("Nombre Look Up");
+
+        jLabel13.setText("App Short Name:");
+
+        txtAppSh.setText("XBOL");
+
+        jLabel14.setText("UPLOAD: ");
+
+        jLabel15.setText("DOWNLOD: ");
+
+        btnUpload.setText("Generar/Copiar");
+        btnUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUploadActionPerformed(evt);
+            }
+        });
+
+        jToggleButton2.setText("Generar/Copiar");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jInternalFrame6Layout = new javax.swing.GroupLayout(jInternalFrame6.getContentPane());
+        jInternalFrame6.getContentPane().setLayout(jInternalFrame6Layout);
+        jInternalFrame6Layout.setHorizontalGroup(
+            jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addGap(28, 28, 28)
+                        .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPssw, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNameL, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAppSh, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUpload, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                            .addComponent(txtDown))
+                        .addGap(54, 54, 54)
+                        .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnUpload)
+                            .addComponent(jToggleButton2))))
+                .addContainerGap(216, Short.MAX_VALUE))
+        );
+        jInternalFrame6Layout.setVerticalGroup(
+            jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(txtPssw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtNameL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtAppSh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUpload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(btnUpload))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(jToggleButton2))
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Look Ups", jInternalFrame6);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -790,7 +904,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
         passW = this.txtPass.getText();
         System.out.println(nameCon);
         System.out.println(nameCon.trim());
-        JOptionPane.showMessageDialog(null,nameCon);
+        //JOptionPane.showMessageDialog(null,nameCon);
         cadenaBaseDown ="FNDLOAD "+nameApps.trim()+"/"+passW.trim()+" O Y DOWNLOAD $FND_TOP/patch/115/import/afcpprog.lct "+nameCon.trim()+".ldt PROGRAM APPLICATION_SHORT_NAME=\"XBOL\" CONCURRENT_PROGRAM_NAME=\""+nameCon.trim()+"\"";
         this.txtDownload.setText(cadenaBaseDown);
         //clipboard
@@ -994,6 +1108,47 @@ public class GeneradorScripts extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUPActionPerformed
 
+    private void btnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadActionPerformed
+   // UPLOAD
+        String passW;
+
+       String user = this.txtUser.getText().trim();
+        String pass = this.txtPssw.getText().trim();
+        String nLookUp= this.txtNameL.getText().trim();
+        String XBOL = this.txtAppSh.getText().trim();
+        
+
+        String cadenaBase = "FNDLOAD "+user+"/"+pass+" O Y UPLOAD $FND_TOP/patch/115/import/aflvmlu.lct "+nLookUp+".ldt FND_LOOKUP_TYPE APPLICATION_SHORT_NAME=\""+XBOL+"\" LOOKUP_TYPE=\""+nLookUp+"\"";
+        this.txtUpload.setText(cadenaBase);
+        //----------
+        papelera=cadenaBase; //guardamos el contenido de nuestra variable en una cadena auxiliar
+        StringSelection stringSelection = new StringSelection(papelera);       //creamos objeto y ejecutampos metodo le pasamos nuestra var auxiliar
+        Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard(); // comunicacion con el sistema operativo
+        clpbrd.setContents(stringSelection, null); // metdo del copiado
+
+
+    }//GEN-LAST:event_btnUploadActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+         // UPLOAD
+        String passW;
+
+       String user = this.txtUser.getText();
+        String pass = this.txtPssw.getText();
+        String nLookUp= this.txtNameL.getText();
+        String XBOL = this.txtAppSh.getText();
+        passW = this.txtPass.getText();
+
+        String cadenaBase = "FNDLOAD "+user+"/"+pass+" O Y DOWNLOAD $FND_TOP/patch/115/import/aflvmlu.lct "+nLookUp+".ldt FND_LOOKUP_TYPE APPLICATION_SHORT_NAME=\""+XBOL+"\" LOOKUP_TYPE=\""+nLookUp+"\"";
+        this.txtDown.setText(cadenaBase);
+        //----------
+        papelera=cadenaBase; //guardamos el contenido de nuestra variable en una cadena auxiliar
+        StringSelection stringSelection = new StringSelection(papelera);       //creamos objeto y ejecutampos metodo le pasamos nuestra var auxiliar
+        Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard(); // comunicacion con el sistema operativo
+        clpbrd.setContents(stringSelection, null); // metdo del copiado
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1037,13 +1192,21 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JButton btnU;
     private javax.swing.JButton btnUplTem;
     private javax.swing.JButton btnUplTem1;
+    private javax.swing.JToggleButton btnUpload;
     private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame3;
     private javax.swing.JInternalFrame jInternalFrame4;
     private javax.swing.JInternalFrame jInternalFrame5;
+    private javax.swing.JInternalFrame jInternalFrame6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1056,6 +1219,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lblApp;
     private javax.swing.JLabel lblAppsSch;
     private javax.swing.JLabel lblD;
@@ -1084,9 +1248,11 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsr1;
     private javax.swing.JLabel lblUsrDD;
     private javax.swing.JTextField txtApp;
+    private javax.swing.JTextField txtAppSh;
     private javax.swing.JTextField txtAppsSch;
     private javax.swing.JTextField txtCadenaD;
     private javax.swing.JTextField txtCadenaU;
+    private javax.swing.JTextField txtDown;
     private javax.swing.JTextField txtDownload;
     private javax.swing.JTextField txtDwn;
     private javax.swing.JTextField txtDwn1;
@@ -1097,9 +1263,11 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JTextField txtNameApps;
     private javax.swing.JTextField txtNameConc;
     private javax.swing.JTextField txtNameConcur;
+    private javax.swing.JTextField txtNameL;
     private javax.swing.JTextField txtPass;
     private javax.swing.JTextField txtPassW;
     private javax.swing.JTextField txtPort;
+    private javax.swing.JTextField txtPssw;
     private javax.swing.JTextField txtPsw;
     private javax.swing.JTextField txtPsw1;
     private javax.swing.JTextField txtReqGroup;
@@ -1110,7 +1278,9 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JTextField txtTmloc;
     private javax.swing.JTextField txtUP;
     private javax.swing.JTextField txtUpl;
+    private javax.swing.JTextField txtUpload;
     private javax.swing.JTextField txtUploadConc;
+    private javax.swing.JTextField txtUser;
     private javax.swing.JTextPane txtUsr;
     private javax.swing.JTextPane txtUsr1;
     private javax.swing.JTextField txtXbol;

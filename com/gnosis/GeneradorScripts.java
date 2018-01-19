@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import javax.swing.JOptionPane;
+import util.Leer;
 
 /**
  *
@@ -132,8 +133,14 @@ public class GeneradorScripts extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         btnUpload = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
+        jInternalFrame7 = new javax.swing.JInternalFrame();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtMainPane = new javax.swing.JTextPane();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jInternalFrame1.setVisible(true);
 
@@ -875,6 +882,43 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Look Ups", jInternalFrame6);
 
+        jInternalFrame7.setVisible(true);
+
+        jScrollPane3.setViewportView(txtMainPane);
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jInternalFrame7Layout = new javax.swing.GroupLayout(jInternalFrame7.getContentPane());
+        jInternalFrame7.getContentPane().setLayout(jInternalFrame7Layout);
+        jInternalFrame7Layout.setHorizontalGroup(
+            jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(jButton2)))
+                .addContainerGap(337, Short.MAX_VALUE))
+        );
+        jInternalFrame7Layout.setVerticalGroup(
+            jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jButton2)
+                .addGap(58, 58, 58)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Limpia Pkgs", jInternalFrame7);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1149,6 +1193,15 @@ public class GeneradorScripts extends javax.swing.JFrame {
         clpbrd.setContents(stringSelection, null); // metdo del copiado
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            String texto="a caray";
+            Leer objL =  new Leer();
+                   // TODO add your handling code here:
+            texto=objL.LectorArchivo(); 
+            System.out.println("-->"+texto);
+            this.txtMainPane.setText(texto);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1194,12 +1247,14 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JButton btnUplTem1;
     private javax.swing.JToggleButton btnUpload;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame3;
     private javax.swing.JInternalFrame jInternalFrame4;
     private javax.swing.JInternalFrame jInternalFrame5;
     private javax.swing.JInternalFrame jInternalFrame6;
+    private javax.swing.JInternalFrame jInternalFrame7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1218,6 +1273,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lblApp;
@@ -1258,6 +1314,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JTextField txtDwn1;
     private javax.swing.JTextField txtHost;
     private javax.swing.JTextField txtLng;
+    private javax.swing.JTextPane txtMainPane;
     private javax.swing.JTextField txtModAppShorN;
     private javax.swing.JTextField txtNameApl;
     private javax.swing.JTextField txtNameApps;

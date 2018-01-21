@@ -11,6 +11,7 @@ import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import util.Escribir;
 import util.Leer;
 
 /**
@@ -146,6 +147,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
         txtReemp = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         txtOrig = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -917,6 +919,13 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         txtOrig.setText("apps.");
 
+        jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jInternalFrame7Layout = new javax.swing.GroupLayout(jInternalFrame7.getContentPane());
         jInternalFrame7.getContentPane().setLayout(jInternalFrame7Layout);
         jInternalFrame7Layout.setHorizontalGroup(
@@ -924,7 +933,9 @@ public class GeneradorScripts extends javax.swing.JFrame {
             .addGroup(jInternalFrame7Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addContainerGap(13, Short.MAX_VALUE))
             .addGroup(jInternalFrame7Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel16)
@@ -956,8 +967,13 @@ public class GeneradorScripts extends javax.swing.JFrame {
                         .addComponent(jLabel17)
                         .addComponent(jButton3)
                         .addComponent(txtReemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton4)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -1286,6 +1302,15 @@ public class GeneradorScripts extends javax.swing.JFrame {
             this.txtMainPane.setText(strLimpio);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        Escribir objEsc = new Escribir();
+        objEsc.EscribeDoc();
+        
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1333,6 +1358,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame3;

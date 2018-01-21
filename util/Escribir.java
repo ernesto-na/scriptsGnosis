@@ -19,7 +19,7 @@ public class Escribir {
        try
             {
             //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
-            File archivo=new File("C:\\Users\\GHCM-T430-01\\Documents\\NetBeansProjects\\GeneradorScriptsGnosis\\src\\texto.txt");
+            File archivo=new File("C:\\Users\\GHCM-T430-01\\Desktop\\123.txt");
 
             //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
             FileWriter escribir=new FileWriter(archivo,true);

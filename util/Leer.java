@@ -16,21 +16,22 @@ public class Leer {
    * Recibe la ruta y el nombre del archivo
    * @param arg 
    */  
-    public String LectorArchivo(){
+    public String LectorArchivo(String ruta){
         String texto="";
         String auxText="";
             try
                 {
                 //Creamos un archivo FileReader que obtiene lo que tenga el archivo
-                FileReader lector=new FileReader("C:\\Users\\GHCM-T430-01\\Documents\\NetBeansProjects\\GeneradorScriptsGnosis\\src\\texto.txt");
+                FileReader lector=new FileReader(ruta);
                 //El contenido de lector se guarda en un BufferedReder
                 BufferedReader contenido=new BufferedReader(lector);
                 //Con el siguiente ciclo extraemos todo el contenido del objeto "contenido" y lo mostramos
                 while((texto=contenido.readLine())!=null)
                     {
-                    System.out.println(texto);
-                    auxText=texto;
+                    System.out.println("-->"+texto);
+                    auxText=auxText+texto+"\n";
                     }
+                    System.out.println("final: "+auxText);
                     return auxText; 
                 }
                 catch(Exception e)

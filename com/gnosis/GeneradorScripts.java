@@ -8,6 +8,8 @@ package com.gnosis;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import util.Leer;
 
@@ -18,6 +20,7 @@ import util.Leer;
 public class GeneradorScripts extends javax.swing.JFrame {
         String nameCon, papelera;
         String nameApps ,Passw,cadenaBaseDown;
+        String texto="";
     /**
      * Creates new form GeneradorScripts
      */
@@ -137,6 +140,12 @@ public class GeneradorScripts extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtMainPane = new javax.swing.JTextPane();
         jButton2 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        txtReemp = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txtOrig = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -259,7 +268,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                     .addComponent(lblDonw)
                     .addComponent(txtDownload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Concurrentes", jInternalFrame1);
@@ -588,7 +597,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtCadenaU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnU))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Definicion de datos", jInternalFrame3);
@@ -752,7 +761,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                         .addComponent(lblDwn1)
                         .addComponent(txtDwn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnDnwlTem1))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Grupo de Solicitudes", jInternalFrame4);
@@ -776,7 +785,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
             .addGroup(jInternalFrame5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Acerca de..", jInternalFrame5);
@@ -877,7 +886,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                     .addComponent(txtDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
                     .addComponent(jToggleButton2))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Look Ups", jInternalFrame6);
@@ -886,35 +895,70 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(txtMainPane);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("...");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
+        jLabel16.setText("Cargar");
+
+        jLabel17.setText("Reemplazar:");
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("Original");
+
+        txtOrig.setText("apps.");
+
         javax.swing.GroupLayout jInternalFrame7Layout = new javax.swing.GroupLayout(jInternalFrame7.getContentPane());
         jInternalFrame7.getContentPane().setLayout(jInternalFrame7Layout);
         jInternalFrame7Layout.setHorizontalGroup(
             jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame7Layout.createSequentialGroup()
-                .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(jButton2)))
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
+            .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(txtOrig)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtReemp, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(22, 22, 22))
         );
         jInternalFrame7Layout.setVerticalGroup(
             jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame7Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jButton2)
-                .addGap(58, 58, 58)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(jButton2)
+                        .addComponent(jLabel18)
+                        .addComponent(txtOrig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel17)
+                        .addComponent(jButton3)
+                        .addComponent(txtReemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Limpia Pkgs", jInternalFrame7);
@@ -927,7 +971,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("Concurrentes");
@@ -1193,14 +1237,54 @@ public class GeneradorScripts extends javax.swing.JFrame {
         clpbrd.setContents(stringSelection, null); // metdo del copiado
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
+    public String eliminarChars(String var,String original,String reemplazo){
+        
+       var = var.replace(original, reemplazo);
+        
+        
+        return var;
+    }
+    
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-            String texto="a caray";
+           // String texto="a caray";
+            JFileChooser selectorArchivos = new JFileChooser();
+            selectorArchivos.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+             int resultado = selectorArchivos.showOpenDialog(this);
+               File f =   selectorArchivos.getSelectedFile();
+          String nombre = f.getName();
+          String path = f.getAbsolutePath();
+            System.out.println(nombre);
+            System.out.println(path);
+            System.out.println(resultado);
+             
             Leer objL =  new Leer();
                    // TODO add your handling code here:
-            texto=objL.LectorArchivo(); 
+            texto=objL.LectorArchivo(path); 
             System.out.println("-->"+texto);
+            String remp =this.txtReemp.getText().trim();
+            String ori = this.txtOrig.getText().trim();
+            String strLimpio = eliminarChars(texto,ori,remp);
             this.txtMainPane.setText(texto);
+            
+            
+
+// indica cual fue la accion de usuario sobre el jfilechooser
+           
+        
+            
+         
+            
+            
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String remp =this.txtReemp.getText().trim();
+            String ori = this.txtOrig.getText().trim();
+            String strLimpio = eliminarChars(texto,ori,remp);
+            this.txtMainPane.setText(strLimpio);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1248,6 +1332,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnUpload;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame3;
@@ -1262,6 +1347,9 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1321,12 +1409,14 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JTextField txtNameConc;
     private javax.swing.JTextField txtNameConcur;
     private javax.swing.JTextField txtNameL;
+    private javax.swing.JTextField txtOrig;
     private javax.swing.JTextField txtPass;
     private javax.swing.JTextField txtPassW;
     private javax.swing.JTextField txtPort;
     private javax.swing.JTextField txtPssw;
     private javax.swing.JTextField txtPsw;
     private javax.swing.JTextField txtPsw1;
+    private javax.swing.JTextField txtReemp;
     private javax.swing.JTextField txtReqGroup;
     private javax.swing.JTextField txtRuta;
     private javax.swing.JTextField txtShort;

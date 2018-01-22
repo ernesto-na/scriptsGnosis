@@ -22,6 +22,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
         String nameCon, papelera;
         String nameApps ,Passw,cadenaBaseDown;
         String texto="";
+        String sPath="";
     /**
      * Creates new form GeneradorScripts
      */
@@ -147,7 +148,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
         txtReemp = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         txtOrig = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        btnGrabar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -908,7 +909,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         jLabel17.setText("Reemplazar:");
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Limpiar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -919,10 +920,10 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         txtOrig.setText("apps.");
 
-        jButton4.setText("jButton4");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnGrabar.setText("Grabar");
+        btnGrabar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnGrabarActionPerformed(evt);
             }
         });
 
@@ -934,8 +935,8 @@ public class GeneradorScripts extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(btnGrabar)
+                .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(jInternalFrame7Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel16)
@@ -973,7 +974,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jInternalFrame7Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jButton4)))
+                        .addComponent(btnGrabar)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -1270,6 +1271,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                File f =   selectorArchivos.getSelectedFile();
           String nombre = f.getName();
           String path = f.getAbsolutePath();
+          sPath=path;
             System.out.println(nombre);
             System.out.println(path);
             System.out.println(resultado);
@@ -1298,18 +1300,28 @@ public class GeneradorScripts extends javax.swing.JFrame {
         // TODO add your handling code here:
         String remp =this.txtReemp.getText().trim();
             String ori = this.txtOrig.getText().trim();
+            
             String strLimpio = eliminarChars(texto,ori,remp);
+            texto=texto.toLowerCase();
+             strLimpio = eliminarChars(texto,ori,remp);
+             texto=texto.toLowerCase();
+             strLimpio = eliminarChars(texto,ori,remp);
+            
+            
+            
+            
             this.txtMainPane.setText(strLimpio);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
         // TODO add your handling code here:
         Escribir objEsc = new Escribir();
-        objEsc.EscribeDoc();
+        String nCont=this.txtMainPane.getText().trim();
+        objEsc.EscribeDoc(sPath,nCont);
         
         
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnGrabarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1350,6 +1362,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JButton btnDnwlTem;
     private javax.swing.JButton btnDnwlTem1;
     private javax.swing.JButton btnGD;
+    private javax.swing.JButton btnGrabar;
     private javax.swing.JButton btnGrarConc;
     private javax.swing.JButton btnU;
     private javax.swing.JButton btnUplTem;
@@ -1358,7 +1371,6 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame3;

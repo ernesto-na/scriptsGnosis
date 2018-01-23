@@ -19,6 +19,7 @@ public class Leer {
     public String LectorArchivo(String ruta){
         String texto="";
         String auxText="";
+        int contLineas=0;
             try
                 {
                 //Creamos un archivo FileReader que obtiene lo que tenga el archivo
@@ -30,13 +31,47 @@ public class Leer {
                     {
                     System.out.println("-->"+texto);
                     auxText=auxText+texto+"\n";
+                    contLineas++;
                     }
                     System.out.println("final: "+auxText);
+                    System.out.println("Lineas: "+contLineas);
                     return auxText; 
+                    
                 }
                 catch(Exception e)
                         {
                             return auxText=e.getMessage(); 
+
+                        }
+                      
+                    } 
+    
+    
+    public Integer cuentaLineas(String ruta){
+        String texto="";
+        String auxText="";
+        int contLineas=0;
+            try
+                {
+                //Creamos un archivo FileReader que obtiene lo que tenga el archivo
+                FileReader lector=new FileReader(ruta);
+                //El contenido de lector se guarda en un BufferedReder
+                BufferedReader contenido=new BufferedReader(lector);
+                //Con el siguiente ciclo extraemos todo el contenido del objeto "contenido" y lo mostramos
+                while((texto=contenido.readLine())!=null)
+                    {
+                    System.out.println("-->"+texto);
+                    auxText=auxText+texto+"\n";
+                    contLineas++;
+                    }
+                    System.out.println("final: "+auxText);
+                    System.out.println("Lineas: "+contLineas);
+                    return contLineas; 
+                    
+                }
+                catch(Exception e)
+                        {
+                            return -1; 
 
                         }
                       

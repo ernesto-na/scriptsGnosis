@@ -149,6 +149,8 @@ public class GeneradorScripts extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         txtOrig = new javax.swing.JTextField();
         btnGrabar = new javax.swing.JButton();
+        txtL = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -896,6 +898,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         jInternalFrame7.setVisible(true);
 
+        txtMainPane.setEnabled(false);
         jScrollPane3.setViewportView(txtMainPane);
 
         jButton2.setText("...");
@@ -927,6 +930,10 @@ public class GeneradorScripts extends javax.swing.JFrame {
             }
         });
 
+        txtL.setText("0");
+
+        jLabel19.setText("Lineas");
+
         javax.swing.GroupLayout jInternalFrame7Layout = new javax.swing.GroupLayout(jInternalFrame7.getContentPane());
         jInternalFrame7.getContentPane().setLayout(jInternalFrame7Layout);
         jInternalFrame7Layout.setHorizontalGroup(
@@ -935,8 +942,15 @@ public class GeneradorScripts extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnGrabar)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame7Layout.createSequentialGroup()
+                        .addComponent(btnGrabar)
+                        .addGap(0, 11, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame7Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtL)))
+                .addContainerGap())
             .addGroup(jInternalFrame7Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel16)
@@ -974,7 +988,11 @@ public class GeneradorScripts extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jInternalFrame7Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(btnGrabar)))
+                        .addComponent(btnGrabar)
+                        .addGap(28, 28, 28)
+                        .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -1265,6 +1283,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
            // String texto="a caray";
+           Integer lineas=0;
             JFileChooser selectorArchivos = new JFileChooser();
             selectorArchivos.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
              int resultado = selectorArchivos.showOpenDialog(this);
@@ -1279,6 +1298,9 @@ public class GeneradorScripts extends javax.swing.JFrame {
             Leer objL =  new Leer();
                    // TODO add your handling code here:
             texto=objL.LectorArchivo(path); 
+            lineas=objL.cuentaLineas(path);
+            this.txtL.setText(lineas.toString());
+            
             System.out.println("-->"+texto);
             String remp =this.txtReemp.getText().trim();
             String ori = this.txtOrig.getText().trim();
@@ -1388,6 +1410,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1439,6 +1462,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JTextField txtDwn;
     private javax.swing.JTextField txtDwn1;
     private javax.swing.JTextField txtHost;
+    private javax.swing.JTextField txtL;
     private javax.swing.JTextField txtLng;
     private javax.swing.JTextPane txtMainPane;
     private javax.swing.JTextField txtModAppShorN;

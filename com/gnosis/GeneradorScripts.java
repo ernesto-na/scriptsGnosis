@@ -910,6 +910,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         jInternalFrame7.setVisible(true);
 
+        txtMainPane.setEnabled(false);
         jScrollPane3.setViewportView(txtMainPane);
 
         jButton2.setText("...");
@@ -1079,9 +1080,8 @@ public class GeneradorScripts extends javax.swing.JFrame {
                     .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton4)
                         .addComponent(jLabel21)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("OAF", jInternalFrame8);

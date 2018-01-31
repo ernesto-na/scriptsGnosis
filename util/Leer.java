@@ -40,7 +40,7 @@ public class Leer {
                 }
                 catch(Exception e)
                         {
-                            return auxText=e.getMessage(); 
+                            return auxText=e.getMessage()+"\nIntente Nuevamente (cierre el archivo)"; 
 
                         }
                       

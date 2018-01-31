@@ -152,6 +152,8 @@ public class GeneradorScripts extends javax.swing.JFrame {
         btnGrabar = new javax.swing.JButton();
         txtL = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         jInternalFrame8 = new javax.swing.JInternalFrame();
         jLabel23 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -257,7 +259,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                             .addComponent(txtDownload, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jButton1))))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,7 +434,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                         .addComponent(txtDwn, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnDnwlTem)))
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -578,7 +580,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                             .addComponent(btnGD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnU)))
                     .addComponent(jLabel4))
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
         jInternalFrame3Layout.setVerticalGroup(
             jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -646,6 +648,8 @@ public class GeneradorScripts extends javax.swing.JFrame {
         });
 
         lblRequestGroup.setText("Request Group");
+
+        txtReqGroup.setText("All Reports");
 
         txtXbol.setText("XBOL");
 
@@ -738,7 +742,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                         .addComponent(lblPsw1)
                         .addGap(18, 18, 18)
                         .addComponent(txtPsw1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
         jInternalFrame4Layout.setVerticalGroup(
             jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -797,7 +801,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
             .addGroup(jInternalFrame5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(592, Short.MAX_VALUE))
+                .addContainerGap(698, Short.MAX_VALUE))
         );
         jInternalFrame5Layout.setVerticalGroup(
             jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -874,7 +878,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                         .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnUpload)
                             .addComponent(jToggleButton2))))
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
         jInternalFrame6Layout.setVerticalGroup(
             jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -948,39 +952,47 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         jLabel19.setText("Lineas");
 
+        lblNombre.setText("--");
+
+        jLabel24.setText("Arcivo: ");
+
         javax.swing.GroupLayout jInternalFrame7Layout = new javax.swing.GroupLayout(jInternalFrame7.getContentPane());
         jInternalFrame7.getContentPane().setLayout(jInternalFrame7Layout);
         jInternalFrame7Layout.setHorizontalGroup(
             jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame7Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame7Layout.createSequentialGroup()
-                        .addComponent(btnGrabar)
-                        .addGap(0, 11, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame7Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtL)))
+                .addGap(54, 54, 54)
+                .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel18)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtOrig, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtReemp, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3))
+                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel24)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblNombre)
+                                .addGap(63, 63, 63)
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtL, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(84, 84, 84)
+                                .addComponent(btnGrabar))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 791, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jInternalFrame7Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLabel16)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel18)
-                .addGap(18, 18, 18)
-                .addComponent(txtOrig)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtReemp, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(22, 22, 22))
         );
         jInternalFrame7Layout.setVerticalGroup(
             jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -998,16 +1010,21 @@ public class GeneradorScripts extends javax.swing.JFrame {
                         .addComponent(txtReemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame7Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(btnGrabar)
-                        .addGap(28, 28, 28)
+                        .addGap(8, 8, 8)
                         .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                            .addComponent(jLabel19)
+                            .addComponent(txtL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNombre)
+                            .addComponent(jLabel24)))
+                    .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(btnGrabar)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Limpia Pkgs", jInternalFrame7);
@@ -1074,7 +1091,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
                             .addGroup(jInternalFrame8Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         jInternalFrame8Layout.setVerticalGroup(
             jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1396,6 +1413,8 @@ public class GeneradorScripts extends javax.swing.JFrame {
           String nombre = f.getName();
           String path = f.getAbsolutePath();
           sPath=path;
+          
+          this.lblNombre.setText(nombre);
             System.out.println(nombre);
             System.out.println(path);
             System.out.println(resultado);
@@ -1560,6 +1579,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1585,6 +1605,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JLabel lblNameApl;
     private javax.swing.JLabel lblNameApl1;
     private javax.swing.JLabel lblNameConc;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblPlnt;
     private javax.swing.JLabel lblPort;

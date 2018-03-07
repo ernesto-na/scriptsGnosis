@@ -13,6 +13,8 @@ public class ClaseFile {
     
     public String listFiles(String path){
         File file = new File(path);
+        
+        
         String auxText="";
 		// si fuera un directorio, para saber los arhivos que contiene
 		for (String string : file.list())

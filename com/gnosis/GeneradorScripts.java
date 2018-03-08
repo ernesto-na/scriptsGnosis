@@ -176,6 +176,8 @@ public class GeneradorScripts extends javax.swing.JFrame {
         txtPgs = new javax.swing.JTextArea();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jInternalFrame9 = new javax.swing.JInternalFrame();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1179,6 +1181,34 @@ public class GeneradorScripts extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("OAF", jInternalFrame8);
 
+        jInternalFrame9.setVisible(true);
+
+        jToggleButton1.setText("Genera Pkgs");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jInternalFrame9Layout = new javax.swing.GroupLayout(jInternalFrame9.getContentPane());
+        jInternalFrame9.getContentPane().setLayout(jInternalFrame9Layout);
+        jInternalFrame9Layout.setHorizontalGroup(
+            jInternalFrame9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame9Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jToggleButton1)
+                .addContainerGap(751, Short.MAX_VALUE))
+        );
+        jInternalFrame9Layout.setVerticalGroup(
+            jInternalFrame9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame9Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jToggleButton1)
+                .addContainerGap(433, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("PL/SQL", jInternalFrame9);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1667,6 +1697,12 @@ public class GeneradorScripts extends javax.swing.JFrame {
                     
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        GeneraPKGS frame2 = new GeneraPKGS(); 
+        frame2.setVisible( true );
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1729,6 +1765,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jInternalFrame6;
     private javax.swing.JInternalFrame jInternalFrame7;
     private javax.swing.JInternalFrame jInternalFrame8;
+    private javax.swing.JInternalFrame jInternalFrame9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1760,6 +1797,7 @@ public class GeneradorScripts extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lblApp;
     private javax.swing.JLabel lblAppsSch;

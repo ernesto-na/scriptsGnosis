@@ -5,12 +5,19 @@
  */
 package com.gnosis;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author GHCM-T430-01
  */
 public class GeneraPKGS extends javax.swing.JFrame {
-
+            String nom_pkg="DEFAULT";
+           static ArrayList<String> auxVars = new ArrayList<String>();
+           String auxFinalVarspkg="";
+           String pkgs ="";
+    
+    
     /**
      * Creates new form GeneraPKGS
      */
@@ -33,6 +40,18 @@ public class GeneraPKGS extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtMainPkg = new javax.swing.JTextPane();
         txtNom_t = new javax.swing.JTextField();
+        btnGcpkg = new javax.swing.JToggleButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtNomPkg = new javax.swing.JTextField();
+        btnSpec = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        btnVars = new javax.swing.JButton();
+        txtNomVar = new javax.swing.JTextField();
+        cbbxES = new javax.swing.JComboBox<>();
+        cbbxTipo = new javax.swing.JComboBox<>();
+        txtFVars = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,7 +59,7 @@ public class GeneraPKGS extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre tabla principal");
 
-        btnGenPkgs.setText("Generar");
+        btnGenPkgs.setText("Generar Cursor");
         btnGenPkgs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenPkgsActionPerformed(evt);
@@ -49,6 +68,45 @@ public class GeneraPKGS extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(txtMainPkg);
 
+        btnGcpkg.setText("BODY PKG");
+        btnGcpkg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGcpkgActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nombre Pkg: ");
+
+        btnSpec.setText("SPEC PKG");
+        btnSpec.setToolTipText("");
+        btnSpec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSpecActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Variables PKG:");
+
+        jLabel5.setText("I/O");
+
+        jLabel6.setText("Tipo");
+
+        btnVars.setText("Add...");
+        btnVars.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVarsActionPerformed(evt);
+            }
+        });
+
+        cbbxES.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IN", "OUT" }));
+        cbbxES.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbxESActionPerformed(evt);
+            }
+        });
+
+        cbbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VARCHAR2", "NUMBER", "DATE", "CHAR", "LONG" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -56,33 +114,92 @@ public class GeneraPKGS extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGenPkgs)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnGenPkgs)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnGcpkg)
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnVars)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(jLabel4)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNom_t, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                                .addComponent(txtNom_t, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                        .addComponent(jLabel5)
+                                        .addGap(124, 124, 124)
+                                        .addComponent(jLabel6)
+                                        .addGap(209, 209, 209))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(cbbxES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(80, 80, 80)
+                                        .addComponent(cbbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNomVar, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFVars, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNomPkg, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addGap(5, 5, 5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txtNomPkg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNom_t, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnGenPkgs)
-                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVars)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNomVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbxES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtFVars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGenPkgs)
+                    .addComponent(btnGcpkg)
+                    .addComponent(btnSpec))
+                .addGap(51, 51, 51)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -93,9 +210,9 @@ public class GeneraPKGS extends javax.swing.JFrame {
         String n_tabla="";
         String params_pkg="";
         String params_cursor="";
-        String pkgs ="";
+        
         n_tabla=this.txtNom_t.getText().toString().trim();
-        pkgs="        declare\n" +
+        pkgs="        " +
                         "         -- definicion de funciones y variables\n" +
                         "         CURSOR get_doc_info \n" +
                         "         IS\n" +
@@ -105,20 +222,218 @@ public class GeneraPKGS extends javax.swing.JFrame {
                         "                \n" +
                         "         doc_info_rec get_doc_info%ROWTYPE;\n" +
                         "        begin\n" +
-                        "                      dbms_output.put_line('inicia cursor');\n" +
+                        "fnd_file.put_line (fnd_file.LOG,'Ejecucion de Reporte aprobado' ); --ADDED\n"+
+				"p_output('<REPORTE>');\n"+
+				"--  p_output('<F_INICIO>'||NVL(SUBSTR(p_fecha_vigencia_ini,1,10),'--')||'</F_INICIO>'); --<?F_FIN?>"+
+                 "--p_output('<F_FIN>'||NVL(SUBSTR(p_fecha_vigencia_fin,1,10),'--')||'</F_FIN>');\n"+
+                 "--p_output('<NUM_PROV_P>'||NVL(lp_nom_prov,'--')/**'-'||NVL(to_char(p_num_proveedor)**/||'</NUM_PROV_P>'); --<?F_FIN?>\n"+
+                 "--p_output('<MON_FAC_P>'||NVL(p_mon_fac,'EUR/GBP')||'</MON_FAC_P>');\n"+
                         "                         OPEN get_doc_info();\n" +
                         "                         LOOP\n" +
                         "                         FETCH get_doc_info INTO doc_info_rec;\n" +
                         "                         EXIT WHEN get_doc_info%NOTFOUND;\n" +
-                        "                          dbms_output.put_line('Nombre: '||doc_info_rec.NAME);\n" +
+                        "                          ---Comienza la escritura de la plantilla\n" +
+"							 p_output('<RECORD>');\n" +
+"							 p_output('<U_OPER>'|| replace_char_esp(doc_info_rec.NAME)||'</U_OPER>');\n" +
+"							 p_output('</RECORD>');\n" +
+"						---Finaliza la escritura de la plantilla"+
                         "                            END LOOP;\n" +
                         "                         CLOSE get_doc_info;\n" +
-                        "          dbms_output.put_line('termina cursor');\n" +
-                        "        end;";
+                        "          p_output('</REPORTE>');\n" +
+                        "        end;\n";
                                 
                                 this.txtMainPkg.setText(pkgs);
                                 
     }//GEN-LAST:event_btnGenPkgsActionPerformed
+
+    private void btnGcpkgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGcpkgActionPerformed
+        // TODO add your handling code here:
+        
+        nom_pkg=this.txtNomPkg.getText();
+        String pkgMain="";
+        pkgMain="CREATE OR REPLACE PACKAGE BODY "+nom_pkg+"\n" +
+                "AS\n" +
+                "\n" +
+                "/**_____________________________________________\n" +
+                "Cliente: Aeromexico\n" +
+                "Proveedor: GnosisHCM\n" +
+                "Desarrollador: \n" +
+                "Fecha: \n" +
+                "Email: \n" +
+                "Generado automaticamente por: GeneradorScriptsGnosis\n" +
+                "--\n" +
+                "____________________________________________**/\n" +
+                "\n" +
+                "FUNCTION replace_char_esp(p_cadena IN varchar2)\n" +
+                " RETURN varchar2 IS\n" +
+                " v_cadena varchar2(4000);\n" +
+                " BEGIN\n" +
+                " v_cadena := REPLACE(p_cadena, CHR(38), CHR(38) || 'amp;');\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50081), CHR(38)||'#225;'); /* v_cadena := REPLACE(v_cadena, CHR(50081), 'HR(38)||'acute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50089), CHR(38)||'#233;'); /* v_cadena := REPLACE(v_cadena, CHR(50089), CHR(38)||'acute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50093), CHR(38)||'#237;'); /* v_cadena := REPLACE(v_cadena, CHR(50093), CHR(38)||'iacute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50099), CHR(38)||'#243;'); /* v_cadena := REPLACE(v_cadena, CHR(50099), cHR(38)||'oacute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50106), CHR(38)||'#250;'); /* v_cadena := REPLACE(v_cadena, CHR(50106), CHR(38)||'uacute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50049), CHR(38)||'#193;'); /* v_cadena := REPLACE(v_cadena, CHR(50049), CHR(38)||'Aacute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50057), CHR(38)||'#201;'); /* v_cadena := REPLACE(v_cadena, CHR(50057), CHR(38)||'Eacute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50061), CHR(38)||'#205;'); /* v_cadena := REPLACE(v_cadena, CHR(50061), CHR(38)||'Iacute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50067), CHR(38)||'#211;'); /* v_cadena := REPLACE(v_cadena, CHR(50067), CHR(38)||'Oacute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50074), CHR(38)||'#218;'); /* v_cadena := REPLACE(v_cadena, CHR(50074), CHR(38)||'Uacute;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50065), CHR(38)||'#209;'); /* v_cadena := REPLACE(v_cadena, CHR(50065), CHR(38)||'Ntilde;'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50065), CHR(38)||'#241;'); /* v_cadena := REPLACE(v_cadena, CHR(50097), CHR(38)||'ntilde'); */\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(49844), '');\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50090), '');\n" +
+                " v_cadena := REPLACE(v_cadena, CHR(50056), 'E');\n" +
+                " RETURN v_cadena;\n" +
+                " END replace_char_esp;\n" +
+                "\n" +
+                " PROCEDURE p_output (pls_msg IN varchar2)\n" +
+                " IS\n" +
+                " BEGIN\n" +
+                " /** WRITE TO THE CONCURRENT REQUEST OUTPUT **/\n" +
+                " fnd_file.put_line (fnd_file.output, pls_msg);\n" +
+                " DBMS_OUTPUT.put_line (pls_msg);\n" +
+                " EXCEPTION\n" +
+                " WHEN OTHERS\n" +
+                " THEN\n" +
+                " RETURN;\n" +
+                " END p_output;\n" +
+                "\n" +
+                " PROCEDURE p_log (pls_msg IN varchar2)\n" +
+                " IS\n" +
+                " BEGIN\n" +
+                " /** WRITE TO THE CONCURRENT REQUEST LOG **/\n" +
+                " fnd_file.put_line (fnd_file.LOG, pls_msg);\n" +
+                " DBMS_OUTPUT.put_line (pls_msg);\n" +
+                " EXCEPTION\n" +
+                " WHEN OTHERS\n" +
+                " THEN\n" +
+                " RETURN;\n" +
+                " END p_log;\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                " PROCEDURE main (pso_errmsg OUT varchar2,\n" +
+                " pso_errcod OUT varchar2,\n" +
+                 auxFinalVarspkg +
+                " ) IS\n" +
+                " ----Cursor que obtiene la informacion del documento\n" +
+                " CURSOR get_doc_info"+
+                "  IS\n" +
+                "\n" +
+                "\n" +
+                "		select * from pa_projects_all where 1=1 and rownum<11;\n" +
+                "\n" +
+                " doc_info_rec get_doc_info%ROWTYPE;\n" +
+                "\n" +
+                " ----Variables para obtener los valores de entrada\n" +
+                " BEGIN\n" +
+                "                               \n" +
+                "\n" +
+                " --fnd_file.put_line (fnd_file.LOG, 'profile01: '||NVL(lp_profile,'N'));\n" +
+                " --fnd_file.put_line (fnd_file.LOG, 'num_prov: '||p_num_proveedor);\n" +
+                "  --fnd_file.put_line (fnd_file.LOG, 'name_prov: '||lp_nom_prov);\n" +
+                "    --fnd_file.put_line (fnd_file.LOG, 'f_inicio: '||p_fecha_vigencia_ini);\n" +
+                "\n" +
+                "      fnd_file.put_line (fnd_file.LOG,'Ejecucion de Reporte aprobado' );\n" +
+                "      /*Ejecucion de Reporte*/\n" +
+                "               p_output('<REPORTE>');\n" +
+                "                 --p_output('<F_INICIO>'||NVL(SUBSTR(p_fecha_vigencia_ini,1,10),'--')||'</F_INICIO>'); --<?F_FIN?>\n" +
+                "                 --p_output('<F_FIN>'||NVL(SUBSTR(p_fecha_vigencia_fin,1,10),'--')||'</F_FIN>');\n" +
+                "                 --p_output('<NUM_PROV_P>'||NVL(lp_nom_prov,'--')/**'-'||NVL(to_char(p_num_proveedor)**/||'</NUM_PROV_P>'); --<?F_FIN?>\n" +
+                "                 --p_output('<MON_FAC_P>'||NVL(p_mon_fac,'EUR/GBP')||'</MON_FAC_P>');\n" +
+                "\n" +
+                "\n" +
+                 pkgs +
+                "\n" +
+                "\n" +
+                " EXCEPTION\n" +
+                " WHEN INVALID_CURSOR\n" +
+                " THEN\n" +
+                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                " pso_errcod := '2';\n" +
+                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                " WHEN VALUE_ERROR\n" +
+                " THEN\n" +
+                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                " pso_errcod := '2';\n" +
+                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                " WHEN TOO_MANY_ROWS\n" +
+                " THEN\n" +
+                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                " pso_errcod := '2';\n" +
+                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                " WHEN INVALID_NUMBER\n" +
+                " THEN\n" +
+                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                " pso_errcod := '2';\n" +
+                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                " WHEN DUP_VAL_ON_INDEX\n" +
+                " THEN\n" +
+                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                " pso_errcod := '2';\n" +
+                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                " WHEN OTHERS\n" +
+                " THEN\n" +
+                " pso_errmsg := 'Exception others: ' || SQLERRM || ',' || SQLCODE;\n" +
+                " pso_errcod := '2';\n" +
+                " fnd_file.put_line(fnd_file.LOG,'Others: '||SQLERRM);\n" +
+                " END main;\n" +
+                "\n" +
+                "END "+ nom_pkg+";\n" +
+                "";
+        this.txtMainPkg.setText(pkgMain);
+                
+    }//GEN-LAST:event_btnGcpkgActionPerformed
+
+    private void btnSpecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpecActionPerformed
+        // TODO add your handling code here:
+        String specPkg="";
+         nom_pkg=this.txtNomPkg.getText();
+        specPkg="CREATE OR REPLACE PACKAGE "+ nom_pkg +" AS \n" +
+                "   /**_____________________________________________\n" +
+                "   Cliente: Aeromexico\n" +
+                "   Proveedor: GnosisHCM\n" +
+                "   Gerado Automaticamente  por GeneradorScriptsGnosis o\n" +
+                "   Fecha:_________\n" +
+                "   Email: ______________\n" +
+                "   ____________________________________________**/\n" +
+                "   PROCEDURE main (pso_errmsg        OUT VARCHAR2\n" +
+                "                  ,pso_errcod        OUT VARCHAR2\n" +
+                "                  ,"+auxFinalVarspkg+" );\n" +
+                "\n" +
+                "\n" +
+                "END "+nom_pkg+";";
+        this.txtMainPkg.setText(specPkg);
+    }//GEN-LAST:event_btnSpecActionPerformed
+
+    private void btnVarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVarsActionPerformed
+        // TODO add your handling code here:
+        
+        
+        String ESvar =this.cbbxES.getSelectedItem().toString();
+        String tipoVar=this.cbbxTipo.getSelectedItem().toString();
+        String nomVar=this.txtNomVar.getText().toString();
+        //System.out.println(nomVar+" "+ESvar+" "+tipoVar);
+        auxVars.add(nomVar+" "+ESvar+" "+tipoVar);
+
+        auxFinalVarspkg="";
+        for(int x=0;x<auxVars.size();x++) {
+                //System.out.print(auxVars.get(x)+",");
+                auxFinalVarspkg=auxFinalVarspkg+auxVars.get(x)+", ";
+              }
+        auxFinalVarspkg=auxFinalVarspkg.trim();
+       System.out.println("Recortada: "+ auxFinalVarspkg.substring(0,auxFinalVarspkg.length()-1));
+        auxFinalVarspkg = auxFinalVarspkg.substring(0,auxFinalVarspkg.length()-1);
+        this.txtNomVar.setText("");
+        System.out.println(auxFinalVarspkg);
+        this.txtFVars.setText(auxFinalVarspkg);
+    }//GEN-LAST:event_btnVarsActionPerformed
+
+    private void cbbxESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbxESActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbxESActionPerformed
                 
     
     /**
@@ -157,11 +472,23 @@ public class GeneraPKGS extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnGcpkg;
     private javax.swing.JButton btnGenPkgs;
+    private javax.swing.JButton btnSpec;
+    private javax.swing.JButton btnVars;
+    private javax.swing.JComboBox<String> cbbxES;
+    private javax.swing.JComboBox<String> cbbxTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtFVars;
     private javax.swing.JTextPane txtMainPkg;
+    private javax.swing.JTextField txtNomPkg;
+    private javax.swing.JTextField txtNomVar;
     private javax.swing.JTextField txtNom_t;
     // End of variables declaration//GEN-END:variables
 }

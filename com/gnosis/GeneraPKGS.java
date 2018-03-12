@@ -258,138 +258,109 @@ public class GeneraPKGS extends javax.swing.JFrame {
         
         nom_pkg=this.txtNomPkg.getText();
         String pkgMain="";
-        pkgMain="CREATE OR REPLACE PACKAGE BODY "+nom_pkg+"\n" +
-                "AS\n" +
-                "\n" +
-                "/**_____________________________________________\n" +
-                "Cliente: Aeromexico\n" +
-                "Proveedor: GnosisHCM\n" +
-                "Desarrollador: \n" +
-                "Fecha: \n" +
-                "Email: \n" +
-                "Generado automaticamente por: GeneradorScriptsGnosis\n" +
-                "--\n" +
-                "____________________________________________**/\n" +
-                "\n" +
-                "FUNCTION replace_char_esp(p_cadena IN varchar2)\n" +
-                " RETURN varchar2 IS\n" +
-                " v_cadena varchar2(4000);\n" +
-                " BEGIN\n" +
-                " v_cadena := REPLACE(p_cadena, CHR(38), CHR(38) || 'amp;');\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50081), CHR(38)||'#225;'); /* v_cadena := REPLACE(v_cadena, CHR(50081), 'HR(38)||'acute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50089), CHR(38)||'#233;'); /* v_cadena := REPLACE(v_cadena, CHR(50089), CHR(38)||'acute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50093), CHR(38)||'#237;'); /* v_cadena := REPLACE(v_cadena, CHR(50093), CHR(38)||'iacute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50099), CHR(38)||'#243;'); /* v_cadena := REPLACE(v_cadena, CHR(50099), cHR(38)||'oacute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50106), CHR(38)||'#250;'); /* v_cadena := REPLACE(v_cadena, CHR(50106), CHR(38)||'uacute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50049), CHR(38)||'#193;'); /* v_cadena := REPLACE(v_cadena, CHR(50049), CHR(38)||'Aacute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50057), CHR(38)||'#201;'); /* v_cadena := REPLACE(v_cadena, CHR(50057), CHR(38)||'Eacute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50061), CHR(38)||'#205;'); /* v_cadena := REPLACE(v_cadena, CHR(50061), CHR(38)||'Iacute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50067), CHR(38)||'#211;'); /* v_cadena := REPLACE(v_cadena, CHR(50067), CHR(38)||'Oacute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50074), CHR(38)||'#218;'); /* v_cadena := REPLACE(v_cadena, CHR(50074), CHR(38)||'Uacute;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50065), CHR(38)||'#209;'); /* v_cadena := REPLACE(v_cadena, CHR(50065), CHR(38)||'Ntilde;'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50065), CHR(38)||'#241;'); /* v_cadena := REPLACE(v_cadena, CHR(50097), CHR(38)||'ntilde'); */\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(49844), '');\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50090), '');\n" +
-                " v_cadena := REPLACE(v_cadena, CHR(50056), 'E');\n" +
-                " RETURN v_cadena;\n" +
-                " END replace_char_esp;\n" +
-                "\n" +
-                " PROCEDURE p_output (pls_msg IN varchar2)\n" +
-                " IS\n" +
-                " BEGIN\n" +
-                " /** WRITE TO THE CONCURRENT REQUEST OUTPUT **/\n" +
-                " fnd_file.put_line (fnd_file.output, pls_msg);\n" +
-                " DBMS_OUTPUT.put_line (pls_msg);\n" +
-                " EXCEPTION\n" +
-                " WHEN OTHERS\n" +
-                " THEN\n" +
-                " RETURN;\n" +
-                " END p_output;\n" +
-                "\n" +
-                " PROCEDURE p_log (pls_msg IN varchar2)\n" +
-                " IS\n" +
-                " BEGIN\n" +
-                " /** WRITE TO THE CONCURRENT REQUEST LOG **/\n" +
-                " fnd_file.put_line (fnd_file.LOG, pls_msg);\n" +
-                " DBMS_OUTPUT.put_line (pls_msg);\n" +
-                " EXCEPTION\n" +
-                " WHEN OTHERS\n" +
-                " THEN\n" +
-                " RETURN;\n" +
-                " END p_log;\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                " PROCEDURE main (pso_errmsg OUT varchar2,\n" +
-                " pso_errcod OUT varchar2,\n" +
-                 auxFinalVarspkg +
-                " ) IS\n" +
-                " ----Cursor que obtiene la informacion del documento\n" +
-                " CURSOR get_doc_info"+
-                "  IS\n" +
-                "\n" +
-                "\n" +
-                "		select * from pa_projects_all where 1=1 and rownum<11;\n" +
-                "\n" +
-                " doc_info_rec get_doc_info%ROWTYPE;\n" +
-                "\n" +
-                " ----Variables para obtener los valores de entrada\n" +
-                " BEGIN\n" +
-                "                               \n" +
-                "\n" +
-                " --fnd_file.put_line (fnd_file.LOG, 'profile01: '||NVL(lp_profile,'N'));\n" +
-                " --fnd_file.put_line (fnd_file.LOG, 'num_prov: '||p_num_proveedor);\n" +
-                "  --fnd_file.put_line (fnd_file.LOG, 'name_prov: '||lp_nom_prov);\n" +
-                "    --fnd_file.put_line (fnd_file.LOG, 'f_inicio: '||p_fecha_vigencia_ini);\n" +
-                "\n" +
-                "      fnd_file.put_line (fnd_file.LOG,'Ejecucion de Reporte aprobado' );\n" +
-                "      /*Ejecucion de Reporte*/\n" +
-                "               p_output('<REPORTE>');\n" +
-                "                 --p_output('<F_INICIO>'||NVL(SUBSTR(p_fecha_vigencia_ini,1,10),'--')||'</F_INICIO>'); --<?F_FIN?>\n" +
-                "                 --p_output('<F_FIN>'||NVL(SUBSTR(p_fecha_vigencia_fin,1,10),'--')||'</F_FIN>');\n" +
-                "                 --p_output('<NUM_PROV_P>'||NVL(lp_nom_prov,'--')/**'-'||NVL(to_char(p_num_proveedor)**/||'</NUM_PROV_P>'); --<?F_FIN?>\n" +
-                "                 --p_output('<MON_FAC_P>'||NVL(p_mon_fac,'EUR/GBP')||'</MON_FAC_P>');\n" +
-                "\n" +
-                "\n" +
-                 pkgs +
-                "\n" +
-                "\n" +
-                " EXCEPTION\n" +
-                " WHEN INVALID_CURSOR\n" +
-                " THEN\n" +
-                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
-                " pso_errcod := '2';\n" +
-                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
-                " WHEN VALUE_ERROR\n" +
-                " THEN\n" +
-                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
-                " pso_errcod := '2';\n" +
-                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
-                " WHEN TOO_MANY_ROWS\n" +
-                " THEN\n" +
-                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
-                " pso_errcod := '2';\n" +
-                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
-                " WHEN INVALID_NUMBER\n" +
-                " THEN\n" +
-                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
-                " pso_errcod := '2';\n" +
-                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
-                " WHEN DUP_VAL_ON_INDEX\n" +
-                " THEN\n" +
-                " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
-                " pso_errcod := '2';\n" +
-                " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
-                " WHEN OTHERS\n" +
-                " THEN\n" +
-                " pso_errmsg := 'Exception others: ' || SQLERRM || ',' || SQLCODE;\n" +
-                " pso_errcod := '2';\n" +
-                " fnd_file.put_line(fnd_file.LOG,'Others: '||SQLERRM);\n" +
-                " END main;\n" +
-                "\n" +
-                "END "+ nom_pkg+";\n" +
-                "";
+        pkgMain="CREATE OR REPLACE PACKAGE BODY " +nom_pkg+"\n" +
+                        "AS\n" +
+                        "\n" +
+                        "/**_____________________________________________\n" +
+                        "Cliente: Aeromexico\n" +
+                        "Proveedor: GnosisHCM\n" +
+                        "Desarrollador: \n" +
+                        "Fecha: \n" +
+                        "Email: \n" +
+                        "Generado automaticamente por: GeneradorScriptsGnosis\n" +
+                        "--\n" +
+                        "____________________________________________**/\n" +
+                        "\n" +
+                        "FUNCTION replace_char_esp(p_cadena IN varchar2)\n" +
+                        " RETURN varchar2 IS\n" +
+                        " v_cadena varchar2(4000);\n" +
+                        " BEGIN\n" +
+                        " v_cadena := REPLACE(p_cadena, CHR(38), CHR(38) || 'amp;');\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50081), CHR(38)||'#225;'); /* v_cadena := REPLACE(v_cadena, CHR(50081), 'HR(38)||'acute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50089), CHR(38)||'#233;'); /* v_cadena := REPLACE(v_cadena, CHR(50089), CHR(38)||'acute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50093), CHR(38)||'#237;'); /* v_cadena := REPLACE(v_cadena, CHR(50093), CHR(38)||'iacute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50099), CHR(38)||'#243;'); /* v_cadena := REPLACE(v_cadena, CHR(50099), cHR(38)||'oacute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50106), CHR(38)||'#250;'); /* v_cadena := REPLACE(v_cadena, CHR(50106), CHR(38)||'uacute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50049), CHR(38)||'#193;'); /* v_cadena := REPLACE(v_cadena, CHR(50049), CHR(38)||'Aacute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50057), CHR(38)||'#201;'); /* v_cadena := REPLACE(v_cadena, CHR(50057), CHR(38)||'Eacute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50061), CHR(38)||'#205;'); /* v_cadena := REPLACE(v_cadena, CHR(50061), CHR(38)||'Iacute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50067), CHR(38)||'#211;'); /* v_cadena := REPLACE(v_cadena, CHR(50067), CHR(38)||'Oacute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50074), CHR(38)||'#218;'); /* v_cadena := REPLACE(v_cadena, CHR(50074), CHR(38)||'Uacute;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50065), CHR(38)||'#209;'); /* v_cadena := REPLACE(v_cadena, CHR(50065), CHR(38)||'Ntilde;'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50065), CHR(38)||'#241;'); /* v_cadena := REPLACE(v_cadena, CHR(50097), CHR(38)||'ntilde'); */\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(49844), '');\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50090), '');\n" +
+                        " v_cadena := REPLACE(v_cadena, CHR(50056), 'E');\n" +
+                        " RETURN v_cadena;\n" +
+                        " END replace_char_esp;\n" +
+                        "\n" +
+                        " PROCEDURE p_output (pls_msg IN varchar2)\n" +
+                        " IS\n" +
+                        " BEGIN\n" +
+                        " /** WRITE TO THE CONCURRENT REQUEST OUTPUT **/\n" +
+                        " fnd_file.put_line (fnd_file.output, pls_msg);\n" +
+                        " DBMS_OUTPUT.put_line (pls_msg);\n" +
+                        " EXCEPTION\n" +
+                        " WHEN OTHERS\n" +
+                        " THEN\n" +
+                        " RETURN;\n" +
+                        " END p_output;\n" +
+                        "\n" +
+                        " PROCEDURE p_log (pls_msg IN varchar2)\n" +
+                        " IS\n" +
+                        " BEGIN\n" +
+                        " /** WRITE TO THE CONCURRENT REQUEST LOG **/\n" +
+                        " fnd_file.put_line (fnd_file.LOG, pls_msg);\n" +
+                        " DBMS_OUTPUT.put_line (pls_msg);\n" +
+                        " EXCEPTION\n" +
+                        " WHEN OTHERS\n" +
+                        " THEN\n" +
+                        " RETURN;\n" +
+                        " END p_log;\n" +
+                        "\n" +
+                        "\n" +
+                        "\n" +
+                        "\n" +
+                        " PROCEDURE main (pso_errmsg OUT varchar2,\n" +
+                        " pso_errcod OUT varchar2,"+auxFinalVarspkg+"\n" +
+                        " ) IS\n" +
+                        " ----Cursor que obtiene la informacion del documento\n" +
+                        pkgs +" "+ 
+                        " EXCEPTION\n" +
+                        " WHEN INVALID_CURSOR\n" +
+                        " THEN\n" +
+                        " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                        " pso_errcod := '2';\n" +
+                        " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                        " WHEN VALUE_ERROR\n" +
+                        " THEN\n" +
+                        " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                        " pso_errcod := '2';\n" +
+                        " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                        " WHEN TOO_MANY_ROWS\n" +
+                        " THEN\n" +
+                        " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                        " pso_errcod := '2';\n" +
+                        " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                        " WHEN INVALID_NUMBER\n" +
+                        " THEN\n" +
+                        " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                        " pso_errcod := '2';\n" +
+                        " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                        " WHEN DUP_VAL_ON_INDEX\n" +
+                        " THEN\n" +
+                        " pso_errmsg := 'Exception no_data_found: ' || SQLERRM || ',' || SQLCODE;\n" +
+                        " pso_errcod := '2';\n" +
+                        " fnd_file.put_line(fnd_file.LOG,'No data found: '||SQLERRM);\n" +
+                        " WHEN OTHERS\n" +
+                        " THEN\n" +
+                        " pso_errmsg := 'Exception others: ' || SQLERRM || ',' || SQLCODE;\n" +
+                        " pso_errcod := '2';\n" +
+                        " fnd_file.put_line(fnd_file.LOG,'Others: '||SQLERRM);\n" +
+                        " END main;\n" +
+                        "\n" +
+                        "END "+nom_pkg+";\n" +
+                        "";
         this.txtMainPkg.setText(pkgMain);
                 
     }//GEN-LAST:event_btnGcpkgActionPerformed

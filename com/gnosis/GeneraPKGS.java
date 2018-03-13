@@ -16,6 +16,7 @@ public class GeneraPKGS extends javax.swing.JFrame {
            static ArrayList<String> auxVars = new ArrayList<String>();
            String auxFinalVarspkg="";
            String pkgs ="";
+           String[] attsTabla; //guarda los atributos de la tabla dados por el usuario
     
     
     /**
@@ -52,6 +53,9 @@ public class GeneraPKGS extends javax.swing.JFrame {
         cbbxES = new javax.swing.JComboBox<>();
         cbbxTipo = new javax.swing.JComboBox<>();
         txtFVars = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtAttbts = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,6 +111,16 @@ public class GeneraPKGS extends javax.swing.JFrame {
 
         cbbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VARCHAR2", "NUMBER", "DATE", "CHAR", "LONG" }));
 
+        jLabel7.setText("Attbts Tabla");
+
+        txtAttbts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAttbtsActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Separados por \" , \"");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,11 +137,11 @@ public class GeneraPKGS extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addGap(124, 124, 124)
                         .addComponent(jLabel6)
-                        .addContainerGap(220, Short.MAX_VALUE))
+                        .addContainerGap(288, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -137,49 +151,63 @@ public class GeneraPKGS extends javax.swing.JFrame {
                                 .addComponent(cbbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(45, 45, 45)
                                 .addComponent(btnVars))
-                            .addComponent(txtNom_t, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtNom_t, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(txtAttbts, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(159, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNomVar, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(txtFVars))
-                .addGap(18, 18, 18)
-                .addComponent(btnGenPkgs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btnGcpkg, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3)))
+                .addGap(24, 24, 24)
+                .addComponent(txtNomPkg, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(546, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel3)))
-                        .addGap(24, 24, 24)
-                        .addComponent(txtNomPkg, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNomVar, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(txtFVars))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnGenPkgs)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnGcpkg, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtNomPkg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtNomPkg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(10, 10, 10)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNom_t, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNom_t, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtAttbts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -211,6 +239,9 @@ public class GeneraPKGS extends javax.swing.JFrame {
         String params_pkg="";
         String params_cursor="";
         
+        String xml="";
+        xml=generaXML();
+        
         n_tabla=this.txtNom_t.getText().toString().trim();
         pkgs="        " +
                         "         -- definicion de funciones y variables\n" +
@@ -225,16 +256,16 @@ public class GeneraPKGS extends javax.swing.JFrame {
                         "fnd_file.put_line (fnd_file.LOG,'Ejecucion de Reporte aprobado' ); --ADDED\n"+
 				"p_output('<REPORTE>');\n"+
 				"--  p_output('<F_INICIO>'||NVL(SUBSTR(p_fecha_vigencia_ini,1,10),'--')||'</F_INICIO>'); --<?F_FIN?>"+
-                 "--p_output('<F_FIN>'||NVL(SUBSTR(p_fecha_vigencia_fin,1,10),'--')||'</F_FIN>');\n"+
-                 "--p_output('<NUM_PROV_P>'||NVL(lp_nom_prov,'--')/**'-'||NVL(to_char(p_num_proveedor)**/||'</NUM_PROV_P>'); --<?F_FIN?>\n"+
-                 "--p_output('<MON_FAC_P>'||NVL(p_mon_fac,'EUR/GBP')||'</MON_FAC_P>');\n"+
+                                "--p_output('<F_FIN>'||NVL(SUBSTR(p_fecha_vigencia_fin,1,10),'--')||'</F_FIN>');\n"+
+                                "--p_output('<NUM_PROV_P>'||NVL(lp_nom_prov,'--')/**'-'||NVL(to_char(p_num_proveedor)**/||'</NUM_PROV_P>'); --<?F_FIN?>\n"+
+                                "--p_output('<MON_FAC_P>'||NVL(p_mon_fac,'EUR/GBP')||'</MON_FAC_P>');\n"+
                         "                         OPEN get_doc_info();\n" +
                         "                         LOOP\n" +
                         "                         FETCH get_doc_info INTO doc_info_rec;\n" +
                         "                         EXIT WHEN get_doc_info%NOTFOUND;\n" +
                         "                          ---Comienza la escritura de la plantilla\n" +
 "							 p_output('<RECORD>');\n" +
-"							 --p_output('<U_OPER>'|| replace_char_esp(doc_info_rec.NAME)||'</U_OPER>');\n" +
+                                                         xml+
 "							 p_output('</RECORD>');\n" +
 "						---Finaliza la escritura de la plantilla"+
                         "                            END LOOP;\n" +
@@ -246,11 +277,55 @@ public class GeneraPKGS extends javax.swing.JFrame {
                                 
     }//GEN-LAST:event_btnGenPkgsActionPerformed
 
+    public String generaXML(){
+        String attbtsTabla="";
+        attbtsTabla=this.txtAttbts.getText().toString();
+        
+        String cadenafinalXML="";
+        String delimiter = ",";
+        String auxAttsTablaFinal="";
+        attsTabla = attbtsTabla.split(delimiter);
+        for(int i =0; i < attsTabla.length ; i++)
+        {
+             //p_output('<U_OPER>'|| replace_char_esp(doc_info_rec.UNIDAD_OPERATIVA)||'</U_OPER>');
+            String myParamAux="";
+            myParamAux=attsTabla[i];
+            myParamAux=myParamAux.toUpperCase();
+           //System.out.println("P_OUTPUT('<"+myParamAux+">'|| replace_char_esp(doc_info_rec."+myParamAux+")||'</"+myParamAux+">'\n");
+           cadenafinalXML=cadenafinalXML+"P_OUTPUT('<"+myParamAux+">'|| replace_char_esp(doc_info_rec."+myParamAux+")||'</"+myParamAux+">;'\n";
+        }
+        System.out.println(cadenafinalXML);
+        return cadenafinalXML;
+    }
+    
+    
     private void btnGcpkgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGcpkgActionPerformed
         // TODO add your handling code here:
         
         nom_pkg=this.txtNomPkg.getText();
         String pkgMain="";
+        String attbtsTabla="";
+        attbtsTabla=this.txtAttbts.getText().toString();
+        
+        
+        String delimiter = ",";
+        String auxAttsTablaFinal="";
+        attsTabla = attbtsTabla.split(delimiter);
+        for(int i =0; i < attsTabla.length ; i++)
+        {
+           System.out.println(attsTabla[i]+"\n"); 
+            String aux1=attsTabla[i];
+            int auxcont=attsTabla.length-1;
+           if (i!=auxcont){
+              
+              auxAttsTablaFinal=auxAttsTablaFinal.toUpperCase()+aux1.toUpperCase()+","; 
+           }else{
+               auxAttsTablaFinal=auxAttsTablaFinal.toUpperCase()+aux1.toUpperCase(); 
+           }
+        }
+        System.out.println(auxAttsTablaFinal);
+
+        
         pkgMain="CREATE OR REPLACE PACKAGE BODY " +nom_pkg+"\n" +
                         "AS\n" +
                         "\n" +
@@ -405,6 +480,10 @@ public class GeneraPKGS extends javax.swing.JFrame {
     private void cbbxESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbxESActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbxESActionPerformed
+
+    private void txtAttbtsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAttbtsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAttbtsActionPerformed
                 
     
     /**
@@ -455,7 +534,10 @@ public class GeneraPKGS extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtAttbts;
     private javax.swing.JTextField txtFVars;
     private javax.swing.JTextPane txtMainPkg;
     private javax.swing.JTextField txtNomPkg;
